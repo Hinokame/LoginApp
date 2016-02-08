@@ -5,9 +5,10 @@ public class LoginService {
 	  /* this is dummy implementation just checking if its password null or empty
 	  * characters was inserted.
 	  */
-	  boolean result = false;
-	  if(password == null || password.trim() == ""){
-		  result = true;
+	  boolean result = true;
+	  if((password == null) || (password.trim() =="")){
+		  System.out.println("password:" + password); // just for testing left
+		  result = false;
 	  }
 	  return result;
   }

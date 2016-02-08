@@ -27,6 +27,13 @@ public class LoginServlet extends HttpServlet {
 		
 		LoginService loginService = new LoginService();
 		boolean result = loginService.authenticate(userId, password);
+		if(result){
+			response.sendRedirect("success.jsp");
+			return;
+		}else{
+			response.sendRedirect("login.jsp");
+			return;
+		}
 	}
 
 }
