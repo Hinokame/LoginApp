@@ -1,4 +1,4 @@
-package com.andrius.servlets;
+package com.andrius.servlets.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,6 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.andrius.service.LoginService;
 
 /**
  * Servlet implementation class LoginServlet
@@ -22,6 +24,9 @@ public class LoginServlet extends HttpServlet {
 		// Get details from login.jsp form after submit, Scope is request
 		userId = request.getParameter("userId");
 		password = request.getParameter("password");
+		
+		LoginService loginService = new LoginService();
+		boolean result = loginService.authenticate(userId, password);
 	}
 
 }
